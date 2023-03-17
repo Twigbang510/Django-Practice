@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        
+
+        <!-- Select <a href="#categories">category / categories</a>:
+        <div class="multiselect noselect" id="categoryWrapper" style="border-color: initial;">
+            <div>
+                <input type="radio" name="catSelect" value="any" id="cat-radio1"><label for="cat-radio1">Any</label>
+            </div>
+            <div>
+                <input type="radio" name="catSelect" value="multi" id="cat-radio2" onclick="enableCheckboxes()"><label
+                    for="cat-radio2">Custom:</label>
+                <span id="catSelectMulti">
+                    <input type="checkbox" id="cat cb1" ><label for="cat-cb1">Programming</label>
+                    <input type="checkbox" id="cat cb2" ><label for="cat-cb2">Misc</label>
+                    <input type="checkbox" id="cat cb3" ><label for="cat-cb3">Dark</label>
+                    <input type="checkbox" id="cat cb4" ><label for="cat-cb4">Pun</label>
+                    <input type="checkbox" id="cat cb5" ><label for="cat-cb5">Spooky</label>
+                    <input type="checkbox" id="cat cb6" ><label for="cat-cb6">Christmas</label>
+                </span>
+            </div>
+        </div>
+ 
+
+        Select <a href="#blacklist-flags">flags</a> to blacklist:
+
+
+        <div class="multiselect noselect">
+            (optional)&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="blf-cb1"><label for="blf-cb1">nsfw</label>
+            <input type="checkbox" id="blf-cb2"><label for="blf-cb2">religious</label>
+            <input type="checkbox" id="blf-cb3"><label for="blf-cb3">political</label>
+            <input type="checkbox" id="blf-cb4"><label for="blf-cb4">racist</label>
+            <input type="checkbox" id="blf-cb5"><label for="blf-cb5">sexist</label>
+            <input type="checkbox" id="blf-cb6"><label for="blf-cb6">explicit</label>
+        </div>
+
+        Select at least one <a href="#joke-type">joke type</a>:
+
+
+        <div class="multiselect noselect" id="typeSelectWrapper" style="border-color: initial;">
+            <input type="checkbox" id="typ-cb1"><label for="typ-cb1">single</label>
+            <input type="checkbox" id="typ-cb2"><label for="typ-cb2">twopart</label>
+        </div>
+        Search for a joke that<br>contains this <a href="#search-string">search string</a>:
+        <div class="multiselect noselect">
+            <input type="text" id="searchStringInput" placeholder="(optional)">
+        </div>
+        Search for a joke<br>in this <a href="#id-range">ID range</a>:
+        <div class="multiselect noselect" id="idRangeWrapper" style="border-color: initial;">
+            (optional)&nbsp;&nbsp;&nbsp;
+            From: <input type="number" id="idRangeInputFrom" value="0" min="0" step="1" max="1368">
+            To: <input type="number" id="idRangeInputTo" value="1368" min="0" step="1" max="1368">
+        </div>
+        <a href="#amount">Amount</a> of jokes:
+        <div class="multiselect noselect" id="jokeAmountWrapper" style="border-color: initial;">
+            <input type="number" id="jokesAmountInput" value="1" min="1" step="1" max="10">
+        </div> -->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<script>
+
+</script>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+<h1>Xin chao {{name}}</h1>
+<h2>I 
+
+</h2>
+<ul>
+    {% for item in feeling %}
+        {% if item != "Smile" %}
+        <li>{{item}}</li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}
