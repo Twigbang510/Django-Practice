@@ -1,9 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from polls.models import Question
 from .forms import MyForm
 import requests
-
+import json
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import status,viewsets
+from .models import Joke
+from .serializers import *
+from django.views.decorators.csrf import csrf_exempt
 # from .forms import MyForm
 def main(request):
     my_name = "Ten toi"
@@ -15,8 +21,6 @@ def viewList(request):
     list_question = Question.objects.all()
     list = {"quest": list_question}
     return render(request, "polls/question.html",list)
-
-
 
 
 def my_form_view(request):
@@ -47,4 +51,18 @@ def my_form_view(request):
     context = {'form': form}
     return render(request, 'polls/form.html', context)
 
+@api_view(['GET', 'POST'])
+def joke_list(request):
+    if request.method == 'POST':
+        serializer = JokeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_201_CREATED)
+    elif request.method == 'GET':
+        data = Joke.objects.all()
 
+        serializer = JokeSerializer(data, context={'request': request}, many=True)
+
+        return Response(serializer.data)
+        
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

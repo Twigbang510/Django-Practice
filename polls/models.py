@@ -9,18 +9,21 @@ class Choice (models.Model):
     choice_text = models.CharField(max_length=100)
     vote = models.IntegerField(default=0)
 
-class Flags(models.Model):
-    nsfw = models.BooleanField()
-    religious = models.BooleanField()
-    political = models.BooleanField()
-    racist = models.BooleanField()
-    sexist = models.BooleanField()
-    explicit = models.BooleanField()
 class Joke(models.Model):
-    category = models.CharField(max_length=100)
-    type = models.CharField(max_length=100)
-    setup = models.CharField(max_length=500)
-    delivery = models.CharField(max_length=500)
-    flags = models.ForeignKey(Flags, on_delete=models.CASCADE)
-    safe = models.BooleanField()
-    joke_id = models.IntegerField()
+    category = models.CharField(max_length=255)
+    # type = models.CharField(max_length=255)
+    # setup = models.TextField(null=True)
+    # delivery = models.TextField(null=True)
+    joke = models.TextField(null=False, default="")
+    # nsfw = models.BooleanField(default=False)
+    # religious = models.BooleanField(default=False)
+    # political = models.BooleanField(default=False)
+    # racist = models.BooleanField(default=False)
+    # sexist = models.BooleanField(default=False)
+    # explicit = models.BooleanField(default=False)
+    # safe = models.BooleanField(default=True)
+    # joke_id = models.IntegerField(unique=True)
+    # lang = models.CharField(max_length=2, default="en")
+
+    def __str__(self):
+        return self.category
