@@ -1,27 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from polls.models import Question
+
 from .forms import MyForm
 import requests
 import json
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status,viewsets
-from .models import Joke
+from polls.models import Joke
 from .serializers import *
 from django.views.decorators.csrf import csrf_exempt
 # from .forms import MyForm
-def main(request):
-    my_name = "Ten toi"
-    emotion = ["Smile","Cry","Beep"]
-    context ={"name" : my_name, "feeling": emotion}
-    return render(request,"polls/index.html", context)
-        
-def viewList(request):
-    list_question = Question.objects.all()
-    list = {"quest": list_question}
-    return render(request, "polls/question.html",list)
-
 
 def my_form_view(request):
     if request.method == 'POST':
