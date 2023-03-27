@@ -23,9 +23,9 @@ urlpatterns = [
     path("", include("polls.urls")),
     
     path('admin/', admin.site.urls),
-    re_path(r'^api/joke/$', views.joke_list),
-    re_path(r'^api/joke/(?P<joke_id>\d+)/$', views.joke_list),
+    re_path(r'^api/joke/$', views.joke_list_post),
+    # re_path(r'^api/joke/(?P<joke_id>\d+)/$', views.joke_list),
     # re_path(r'^api/joke/(\d+)/$', views.joke_list),
-    re_path(r'^api/joke/(?P<category>[a-zA-Z0-9_]+)/$', views.joke_list),
+    re_path(r'^api/joke/(?P<category>[a-zA-Z0-9_]+)/$', views.joke_list_get),
 
 ]

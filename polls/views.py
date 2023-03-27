@@ -41,8 +41,8 @@ def my_form_view(request):
     return render(request, 'polls/form.html', context)
 
 @api_view(['GET'])
-def joke_list(request,  category):
-
+def joke_list_get(request,  category):
+    if request.method == 'GET':
         data = Joke.objects.filter(category= category) 
 
         serializer = JokeSerializer(data, context={'request': request}, many=True)
@@ -51,11 +51,10 @@ def joke_list(request,  category):
         
 
 @api_view(['POST'])
-def joke_list(request):
+def joke_list_post(request):
     if request.method == 'POST':
         serializer = JokeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(status=status.HTTP_201_CREATED)
-        
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
