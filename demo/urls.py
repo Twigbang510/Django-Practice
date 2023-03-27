@@ -24,4 +24,5 @@ urlpatterns = [
     
     path('admin/', admin.site.urls),
     re_path(r'^api/joke/$', views.joke_list),
+    re_path(r'^api/joke/(?P<joke_id>\d+)/$', views.joke_list),
 ]
