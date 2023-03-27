@@ -7,7 +7,7 @@ class Joke(models.Model):
     type = models.CharField(max_length=255,default='single')
     setup = models.TextField(null=True)
     delivery = models.TextField(null=True)
-    joke = models.TextField(null=False, default="")
+    joke = models.TextField(null=True, default="")
     nsfw = models.BooleanField(default=False)
     religious = models.BooleanField(default=False)
     political = models.BooleanField(default=False)
